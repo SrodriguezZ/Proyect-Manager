@@ -1,7 +1,6 @@
 package com.product.manager.entity;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,15 +10,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
 
 @Entity
 @Table(name = "product")
-@Data
 public class Product {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProducto;
 	
 	@Column(length = 15, unique = true)
@@ -38,6 +35,70 @@ public class Product {
 	private boolean activo;
 	
 	private LocalDate fechaCreacion;
+
+	public int getIdProducto() {
+		return idProducto;
+	}
+
+	public void setIdProducto(int idProducto) {
+		this.idProducto = idProducto;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getIdFamilia() {
+		return idFamilia;
+	}
+
+	public void setIdFamilia(int idFamilia) {
+		this.idFamilia = idFamilia;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
 	
 	
 }

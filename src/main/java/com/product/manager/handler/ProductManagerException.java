@@ -16,5 +16,19 @@ public class ProductManagerException extends RuntimeException{
 	public int getStatusCode() {
         return this.statusCode;
     }
+	
+	public static class CuentaCredencialException extends RuntimeException {
+
+	    public CuentaCredencialException(String mensaje) {
+	        super(mensaje);
+	    }
+	}
+	public static class CuentaBloqueadaException extends RuntimeException {
+
+	    public CuentaBloqueadaException(String mensaje) {
+	        super(mensaje);
+	    }
+	}
+	
 
 }

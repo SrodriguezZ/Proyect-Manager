@@ -1,5 +1,6 @@
 package com.product.manager.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +22,7 @@ public class ProductFamilyService {
 	
 	public ProductFamily save(ProductFamily productFamily) {
 
-		LocalDateTime fechaCreacion = LocalDateTime.now();
+		LocalDate fechaCreacion = LocalDate.now();
 
 		productFamily.setFechaCreacion(fechaCreacion);
 		return productFamilyRepository.save(productFamily);

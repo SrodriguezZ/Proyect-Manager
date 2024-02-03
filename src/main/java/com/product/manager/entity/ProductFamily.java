@@ -1,8 +1,7 @@
 package com.product.manager.entity;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,19 +11,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "product_family")
 public class ProductFamily {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFamilia;
 	
 	@Column(length = 15)
@@ -37,6 +31,46 @@ public class ProductFamily {
 	private boolean activo;
 	
 	private LocalDate fechaCreacion;
+
+	public int getIdFamilia() {
+		return idFamilia;
+	}
+
+	public void setIdFamilia(int idFamilia) {
+		this.idFamilia = idFamilia;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
 
 
 
