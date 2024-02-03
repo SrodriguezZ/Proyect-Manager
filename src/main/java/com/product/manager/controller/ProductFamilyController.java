@@ -3,8 +3,10 @@ package com.product.manager.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,6 +22,7 @@ import com.product.manager.service.ProductFamilyService;
 
 @RestController
 @RequestMapping("/family/product")
+@CrossOrigin(originPatterns = {"http://localhost:4200/"})
 public class ProductFamilyController {
 	
 	@Autowired
@@ -31,10 +34,10 @@ public class ProductFamilyController {
 		return productManagerService.save(prodctFamily);
 	}
 	
-	@PutMapping
-	@ResponseStatus(HttpStatus.OK)
-	private ProductFamily update(@RequestBody ProductFamily prodctFamily) {
-		return productManagerService.save(prodctFamily);
+	@PatchMapping("/{id}")
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	private void update(@PathVariable("id") int id, @RequestBody ProductFamily productFamily ) {
+		productManagerService.updateProduct(id, productFamily);
 	}
 	
 	@GetMapping

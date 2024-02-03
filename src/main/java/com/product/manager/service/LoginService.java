@@ -26,14 +26,14 @@ public class LoginService {
             System.out.println("Ingreso ok");
         } else {
 
-            //Verificacion si la cuenta esta bloqueada 
+            
             if (user.isBloqueado()) {
                 throw new ProductManagerException.CuentaBloqueadaException("Cuenta bloqueada, contactate con soporte");
             }
 
             if (user != null) {
                 user.setIntentosError(user.getIntentosError()+1);
-                //Validamos si excede intentos permitido
+                
                 if (user.getIntentosError() >= 3) {
                     user.setBloqueado(true);;
                 }
@@ -41,12 +41,12 @@ public class LoginService {
                 usuarioRepository.save(user);
             }
 
-            //Caso contrario tiramos un error
-                    throw new ProductManagerException.CuentaCredencialException("Usuario o contraseña incorrecta");
+            
+            	throw new ProductManagerException.CuentaCredencialException("Usuario o contraseña incorrecta");
 
         }
     }
-    //Validamos si los coampos de nuestro user son iguales
+   
     public static boolean validarUsuario(Usuario usuario, Usuario user) {
         return usuario.getUsername().equals(user.getUsername()) && usuario.getPassword().equals(user.getPassword());
     }
