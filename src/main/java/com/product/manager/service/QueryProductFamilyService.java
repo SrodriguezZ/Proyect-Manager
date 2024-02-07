@@ -25,7 +25,7 @@ public class QueryProductFamilyService {
 				 (!isNull(requestQueryProductFamily.getNombreProducto())) && 
 				 (!isNull(requestQueryProductFamily.getActivoProducto()))
 		   ) {
-			
+			 
 			 return querytFamilyProductRepository.queryProductFamilyByCodigoAndNombreAndActivo(
 					 requestQueryProductFamily.getCodigoProducto(),
 					 requestQueryProductFamily.getNombreProducto(),
@@ -48,9 +48,9 @@ public class QueryProductFamilyService {
 		 if( 
 				 (!isNull(requestQueryProductFamily.getCodigoProducto())) && 
 				 (isNull(requestQueryProductFamily.getNombreProducto())) && 
-				 (isNull(requestQueryProductFamily.getActivoProducto()))
+				 (!isNull(requestQueryProductFamily.getActivoProducto()))
 		   ) {
-			 
+			
 			 return querytFamilyProductRepository.queryProductFamilyByCodigoAndActivo(
 					 requestQueryProductFamily.getCodigoProducto(),
 					 Boolean.parseBoolean(requestQueryProductFamily.getActivoProducto())
@@ -72,7 +72,7 @@ public class QueryProductFamilyService {
 		 if( 
 				 (isNull(requestQueryProductFamily.getCodigoProducto())) && 
 				 (!isNull(requestQueryProductFamily.getNombreProducto())) && 
-				 (isNull(requestQueryProductFamily.getActivoProducto()))
+				 (!isNull(requestQueryProductFamily.getActivoProducto()))
 		   ) {
 			 
 			 return querytFamilyProductRepository.queryProductFamilyByNombreAndActivo(
@@ -86,7 +86,7 @@ public class QueryProductFamilyService {
 				 (!isNull(requestQueryProductFamily.getNombreProducto())) && 
 				 (isNull(requestQueryProductFamily.getActivoProducto()))
 		   ) {
-			
+			 
 			 return querytFamilyProductRepository.queryProductFamilyByNombre(
 					 requestQueryProductFamily.getNombreProducto()
 					 );
@@ -95,9 +95,9 @@ public class QueryProductFamilyService {
 		 if( 
 				 (isNull(requestQueryProductFamily.getCodigoProducto())) && 
 				 (isNull(requestQueryProductFamily.getNombreProducto())) && 
-				 (isNull(requestQueryProductFamily.getActivoProducto()))
+				 (!isNull(requestQueryProductFamily.getActivoProducto()))
 		   ) {
-			
+			 
 			 return querytFamilyProductRepository.queryProductFamilyByActivo(
 					 Boolean.parseBoolean(requestQueryProductFamily.getActivoProducto())
 					 );
@@ -108,13 +108,13 @@ public class QueryProductFamilyService {
 				 (isNull(requestQueryProductFamily.getNombreProducto())) && 
 				 (isNull(requestQueryProductFamily.getActivoProducto()))
 		   ) {
-			
+			 
 			 return querytFamilyProductRepository.queryProductFamily();
 		 };
 		 
 		 return querytFamilyProductRepository.queryProductFamily();
 	 }
-	 
+	 //static null
 	 public static boolean isNull(String value) {
 		    return value == null;
 		}

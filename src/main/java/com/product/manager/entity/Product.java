@@ -8,11 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "product")
+@Table(name = "product",uniqueConstraints = @UniqueConstraint(columnNames = {"codigo"}))
 public class Product {
 	
 	@Id
@@ -20,7 +21,7 @@ public class Product {
 	private int idProducto;
 	
 	@Column(length = 15, unique = true)
-	@Size(max = 15, message = "El campo 'codigo' debe tener un m�ximo de 15 caracteres.")
+	@Size(max = 15, message = "El campo 'codigo' debe tener un maximo de 15 caracteres.")
     @Pattern(regexp = "^[A-Za-z0-9]*$", message = "El campo 'codigo' debe contener solo letras y n�meros.")
 	private String codigo;
 	

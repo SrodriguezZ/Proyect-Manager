@@ -9,7 +9,7 @@ import com.product.manager.entity.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
-
+	//JPQL
 	@Query("SELECT u FROM Usuario u WHERE u.username = ?1 AND u.password = ?2")
 	Optional<Usuario> findByUsernameAndPassword(String username, String password);
 	

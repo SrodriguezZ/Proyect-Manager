@@ -2,9 +2,6 @@ package com.product.manager.handler;
 
 public class ProductManagerException extends RuntimeException{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private final int statusCode;
 	
