@@ -17,7 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	
 	@Transactional
 	@Modifying
-	@Query(value = "update product set stock = stock +(:stock) where id_producto  = :id", nativeQuery = true)
+	@Query(value = "update product set stock = stock -(:stock) where id_producto  = :id", nativeQuery = true)
 	int updateStock(@Param("id") int idProducto, @Param("stock") int stock);
 	
 	@Query(value = "SELECT * FROM product WHERE condicion = :condicion", nativeQuery = true)

@@ -1,10 +1,7 @@
 package com.product.manager.service;
 
-import java.lang.StackWalker.Option;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +12,8 @@ import com.product.manager.entity.ProductFamily;
 import com.product.manager.handler.ProductManagerException;
 import com.product.manager.repository.ProductFamilyRepository;
 
-import lombok.extern.log4j.Log4j2;
 
-@Log4j2
+
 @Service
 public class ProductFamilyService {
 	

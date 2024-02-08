@@ -1,10 +1,8 @@
 package com.product.manager.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,21 +12,21 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 public class InvoiceHeader {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFactura;
 	
 	@Column(unique = true)
-	private int numeroFacutra;
+	private int numeroFactura;
 	
 	@Size(min = 13, max = 13, message = "El ruc debe tener 13 caracteres")
 	private String ruc;
 	
 	private String razonSocial;
-
+	
 	private Double subtotal;
-
+	
 	private Double porcentajeIgv;
 	
 	private Double igv;
@@ -45,12 +43,20 @@ public class InvoiceHeader {
 		this.idFactura = idFactura;
 	}
 
-	public int getNumeroFacutra() {
-		return numeroFacutra;
+	public int getNumeroFactura() {
+		return numeroFactura;
 	}
 
-	public void setNumeroFacutra(int numeroFacutra) {
-		this.numeroFacutra = numeroFacutra;
+	public void setNumeroFactura(int numeroFactura) {
+		this.numeroFactura = numeroFactura;
+	}
+
+	public String getRuc() {
+		return ruc;
+	}
+
+	public void setRuc(String ruc) {
+		this.ruc = ruc;
 	}
 
 	public String getRazonSocial() {
@@ -100,5 +106,6 @@ public class InvoiceHeader {
 	public void setFechaCreacion(LocalDate fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+
 
 }

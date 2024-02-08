@@ -11,7 +11,7 @@ import com.product.manager.entity.InvoiceDetail;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface InvoiceDetaiRepository extends JpaRepository<InvoiceDetail, Integer>{
+public interface InvoiceDetailRepository extends JpaRepository<InvoiceDetail, Integer>{
 
 	
 	@Transactional

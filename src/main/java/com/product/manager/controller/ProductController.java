@@ -42,7 +42,9 @@ public class ProductController {
 		 productService.update(id,product);
 	}
 	
-	@PutMapping("update/stock/{id}/{stock}")
+	
+	
+	@PutMapping("/update/stock/{id}/{stock}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void update(@PathVariable("id") int id, @PathVariable("stock") int sotck) {
 		try {

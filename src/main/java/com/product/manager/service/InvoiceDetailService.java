@@ -1,22 +1,26 @@
 package com.product.manager.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.product.manager.entity.InvoiceDetail;
-import com.product.manager.repository.InvoiceDetaiRepository;
+import com.product.manager.repository.InvoiceDetailRepository;
 
 @Service
 public class InvoiceDetailService {
 	
 	@Autowired
-	private InvoiceDetaiRepository invoiceDetaiRepository;
+	private InvoiceDetailRepository invoiceDetaiRepository;
 	
-	public void save(InvoiceDetail invoiceDetail) {
-		invoiceDetail.setFechaCreacion(LocalDate.now());
-		invoiceDetaiRepository.save(invoiceDetail);
+	public void save( List<InvoiceDetail> invoiceDetail) {
+		for(InvoiceDetail invoiceDet:invoiceDetail) {
+			invoiceDet.setFechaCreacion(LocalDate.now());
+			invoiceDetaiRepository.save(invoiceDet);
+		}
+		
 	}
 	
 	public void delete(int id) {

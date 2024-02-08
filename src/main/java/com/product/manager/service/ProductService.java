@@ -38,6 +38,7 @@ public class ProductService {
 			productPresent.setNombre(product.getNombre());
 			productPresent.setPrecio(product.getPrecio());
 			productPresent.setStock(product.getStock());
+			productRepository.save(productPresent);
 		}, ()->{
 			new ProductManagerException("Id no encontrado: " + id, HttpStatus.NOT_FOUND.value());
 		});

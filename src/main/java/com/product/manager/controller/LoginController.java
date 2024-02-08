@@ -29,7 +29,7 @@ public class LoginController {
 		} catch (ProductManagerException.CuentaBloqueadaException e) {
 			return new ResponseEntity<>("Cuenta Bloqueda" , HttpStatus.FORBIDDEN );
 		}catch (ProductManagerException.CuentaCredencialException e) {
-			return new ResponseEntity<>("Credencial Incorrecta" , HttpStatus.UNAUTHORIZED );
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED );
 		}catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
