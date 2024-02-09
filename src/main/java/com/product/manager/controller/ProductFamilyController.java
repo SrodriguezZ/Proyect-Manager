@@ -57,5 +57,17 @@ public class ProductFamilyController {
 		productManagerService.findById(id).orElseThrow(() -> new ProductManagerException("Id a eliminar no se encuentra registrado: " + id, HttpStatus.INTERNAL_SERVER_ERROR.value()));
 		productManagerService.delete(id);
 	}
+	
+	@DeleteMapping("/all/{id}")
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public void deleteId(@PathVariable("id") int id) {
+		try {
+			productManagerService.deleteFk(id);
+		} catch (Exception e) {
+			new ProductManagerException("Id a eleminar no se encuentra registrado: ", id + HttpStatus.INTERNAL_SERVER_ERROR.value());
+		}
+	}
+	
+	
 
 }

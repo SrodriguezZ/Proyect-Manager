@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.product.manager.entity.InvoiceHeader;
+
 import com.product.manager.repository.InvoiceDetailRepository;
 import com.product.manager.repository.InvoiceHeaderRepository;
 
@@ -40,5 +41,6 @@ public class InvoiceHeaderService {
 	public List<InvoiceHeader> getAll(){
 		return invoiceHeaderRepository.findAll();
 	}
+	
 	
 }

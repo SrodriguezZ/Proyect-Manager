@@ -185,8 +185,6 @@ public interface QuerytProductFamilyRepository extends JpaRepository<ProductFami
 			+ "        b.id_familia = :id_familia", nativeQuery = true)
     List<QueryProductFamily> queryProductFamilyByIdFamilia(@Param("id_familia") int idFamilia);
 	
-	/*
-	 ALTER TABLE product ADD CONSTRAINT product_family_product_fk FOREIGN KEY (id_familia) REFERENCES product_family(id_familia);
-	*/
+
 	
 }

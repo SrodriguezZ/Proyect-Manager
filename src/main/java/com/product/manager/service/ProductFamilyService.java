@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.product.manager.entity.ProductFamily;
 import com.product.manager.handler.ProductManagerException;
 import com.product.manager.repository.ProductFamilyRepository;
+import com.product.manager.repository.ProductRepository;
 
 
 
@@ -19,6 +20,9 @@ public class ProductFamilyService {
 	
 	@Autowired
 	private ProductFamilyRepository productFamilyRepository;
+	
+	@Autowired 
+	private ProductRepository productRepository;
 	
 	public ProductFamily save(ProductFamily productFamily) {
 
@@ -54,6 +58,11 @@ public class ProductFamilyService {
 		},()->{
 			 new ProductManagerException("Id no encontrado: " + id, HttpStatus.NOT_FOUND.value());
 		});
+	}
+	
+	public void deleteFk(int id) {
+		productRepository.deleteAllByIdFamily_Product(id);
+		productFamilyRepository.deleteById(id);
 	}
 
 }
